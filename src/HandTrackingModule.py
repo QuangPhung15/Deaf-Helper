@@ -46,21 +46,22 @@ class handDetector():
                         if (lmList[8][1] < lmList[7][1] < lmList[6][1] and lmList[12][1] < lmList[11][1] < lmList[10][1]
                         and lmList[16][1] < lmList[15][1] < lmList[14][1] and lmList[20][1] < lmList[19][1] < lmList[18][1]): 
                             cv2.putText(img, "C", (20, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 255), 3)
+                    elif (lmList[8][2] < lmList[7][2] < lmList[6][2] < lmList[5][2] and lmList[12][2] > lmList[11][2] > lmList[10][2] 
+                        and lmList[16][2] > lmList[15][2] > lmList[14][2] and lmList[20][2] > lmList[19][2] > lmList[18][2]):
+                            cv2.putText(img, "D", (20, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 255), 3)
             elif (abs(lmList[9][1] - lmList[5][1]) <= 100 and abs(lmList[13][1] - lmList[9][1]) <= 100 and abs(lmList[17][1] - lmList[13][1]) <= 100):
                 if (abs(lmList[10][1] - lmList[6][1]) <= 70 and abs(lmList[14][1] - lmList[10][1]) <= 70 and abs(lmList[18][1] - lmList[14][1]) <= 70):
                     if (lmList[4][1] <= lmList[3][1]):
                         if (lmList[8][2] > lmList[7][2] >= lmList[5][2] > lmList[6][2] and lmList[12][2] > lmList[11][2] >= lmList[9][2] > lmList[10][2] 
                         and lmList[16][2] > lmList[15][2] >= lmList[13][2] > lmList[14][2] and lmList[20][2] > lmList[19][2] >= lmList[17][2] > lmList[18][2]):
-                            cv2.putText(img, "A", (20, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 255), 3)
+                            if (abs(lmList[6][1] - lmList[3][1]) <= 70):
+                                cv2.putText(img, "A", (20, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 255), 3)
                     else:
                         if (lmList[8][2] < lmList[7][2] < lmList[6][2] and lmList[12][2] < lmList[11][2] < lmList[10][2] 
                         and lmList[16][2] < lmList[15][2] < lmList[14][2] and lmList[20][2] < lmList[19][2] < lmList[18][2]):
                             if (abs(lmList[10][1] - lmList[6][1]) <= 70 and abs(lmList[14][1] - lmList[10][1]) <= 70 
                             and abs(lmList[18][1] - lmList[14][1]) <= 70):
                                 cv2.putText(img, "B", (20, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 255), 3)
-                        elif (lmList[8][2] < lmList[7][2] < lmList[6][2] < lmList[5][2] and lmList[12][2] > lmList[11][2] > lmList[10][2] 
-                        and lmList[16][2] > lmList[15][2] > lmList[14][2] and lmList[20][2] > lmList[19][2] > lmList[18][2]):
-                            cv2.putText(img, "D", (20, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 255), 3)
                         elif (lmList[8][2] > lmList[7][2] > lmList[6][2] and lmList[12][2] > lmList[11][2] > lmList[10][2] 
                         and lmList[16][2] > lmList[15][2] > lmList[14][2] and lmList[20][2] > lmList[19][2] > lmList[18][2]):
                             if (lmList[8][2] < lmList[4][2] and lmList[12][2] < lmList[4][2] and lmList[16][2] < lmList[4][2] and lmList[20][2] < lmList[4][2]):
@@ -83,11 +84,11 @@ def main():
         lmList = detector.findPosition(img)
 
         detector.alphabet(img, lmList)
-        # if (lmList):
+        # if (lmList):q
         #     print(lmList[8][1] < lmList[7][1] < lmList[6][1])
         #     print(lmList[12][1] < lmList[11][1] < lmList[10][1])
         #     print(lmList[16][1] < lmList[15][1] < lmList[14][1])
-        #     print()
+            # print(abs(lmList[6][1] - lmList[3][1]))
             # a = max(abs(lmList[9][1] - lmList[5][1]), abs(lmList[13][1] - lmList[9][1]))
             # a = max(a, abs(lmList[17][1] - lmList[13][1]))
             # print(a)
